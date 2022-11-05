@@ -175,6 +175,7 @@ static std::map<FlakeId, FlakeInput> parseFlakeInputs(
 {
     std::map<FlakeId, FlakeInput> inputs;
 
+    state.forceValue(*value, pos);
     expectType(state, nAttrs, *value, pos);
 
     for (nix::Attr & inputAttr : *(*value).attrs) {
